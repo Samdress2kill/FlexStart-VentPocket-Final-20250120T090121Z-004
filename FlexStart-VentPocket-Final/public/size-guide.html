@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - FlexStart Bootstrap Template</title>
+
+
+  <!-- Meta Tags -->
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        
+        body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #bdc3c7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 0px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    height: 100px; /* Adjust to fit the logo */
+    padding: 10px; /* Add padding if needed */
+}
+.header img {
+    max-height: 100%; /* Scale the image based on header height */
+    object-fit: contain;
+}
+
+
+
+
+.form-container {
+    background-color: #1c1c1c;
+    padding: 30px 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 150%;
+    color: #fff;
+    text-align: center;
+    margin-top: 12vh;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    color: #ecf0f1;
+    margin-bottom: 20px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.form-container h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 60px;
+    height: 3px;
+    background-color: #3498db;
+    transform: translateX(-50%);
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.form-group label {
+    flex: 1;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.form-group select,
+.form-group input {
+    flex: 2;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: #34495e;
+    color: #fff;
+    outline: none;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    appearance: none;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    background-color: #da4e2b;
+    color: #fff;
+}
+
+.form-group select:hover,
+.form-group input:hover {
+    background-color: #000000;
+    transition: background-color 0.2s ease-in-out;
+    color: #da4e2b;
+}
+
+.form-group select::placeholder,
+.form-group input::placeholder {
+    color: #bdc3c7;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e74d3cbd;
+    transform: translateY(-2px);
+}
+
+/* Customize the dropdown arrow */
+.form-group select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23bdc3c7'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+}
+
+/* Remove number input spinners */
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .form-group {
+        flex-direction: column;
+    }
+
+    .form-group label {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+}
+.order-summary-container {
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    color: #fff;
+    margin: 20px auto;
+    text-align: left;
+}
+.order-summary-container h2 {
+    font-size: 20px;
+    color: #ecf0f1;
+    margin-bottom: 15px;
+    position: relative;
+    text-transform: uppercase;
+}
+.order-summary-container h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 2px;
+    background-color: #3498db;
+}
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+}
+.summary-item span {
+    font-size: 16px;
+}
+.summary-item:last-child {
+    border-bottom: none;
+}
+.submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .size-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;}
+
+     .logo-imgg{
+  height: 180px;
+  margin-right: 8px;
+  margin-top: 4vw;
+}
+        </style>
+    </head>
+
+<body class="index-page">
+    <header style="background-color: rgba(0, 0, 0, 0);" id="header" class="header d-flex align-items-center fixed-top">
+        <div class="size-header">
+            <a href="index.html" class="logoo">
+                <img src="assets/img/logoo.PNG" alt="" class="logo-imgg">
+            </a>
+            <a class="btn-getstarted flex-md-shrink-0" href="index.html#about">SIZE GUIDE</a>
+        </div>
+    </header>
+     <div class="form-container">
+    <h2>Size Chart</h2>
+    <form id="size-form">
+      <div class="form-group">
+        <label for="height">What's your height ? (inches) <a href="/height.html" style="text-decoration: underline;">if you need help click here</a></label>
+        <select id="height" name="height" required>
+          <option value="" disabled selected>Select your height</option>
+          <option value="36">3'0" (36 inches)</option>
+<option value="37">3'1" (37 inches)</option>
+<option value="38">3'2" (38 inches)</option>
+<option value="39">3'3" (39 inches)</option>
+<option value="40">3'4" (40 inches)</option>
+<option value="41">3'5" (41 inches)</option>
+<option value="42">3'6" (42 inches)</option>
+<option value="43">3'7" (43 inches)</option>
+<option value="44">3'8" (44 inches)</option>
+<option value="45">3'9" (45 inches)</option>
+<option value="46">3'10" (46 inches)</option>
+<option value="47">3'11" (47 inches)</option>
+<option value="48">4'0" (48 inches)</option>
+<option value="49">4'1" (49 inches)</option>
+<option value="50">4'2" (50 inches)</option>
+<option value="51">4'3" (51 inches)</option>
+<option value="52">4'4" (52 inches)</option>
+<option value="53">4'5" (53 inches)</option>
+<option value="54">4'6" (54 inches)</option>
+<option value="55">4'7" (55 inches)</option>
+<option value="56">4'8" (56 inches)</option>
+<option value="57">4'9" (57 inches)</option>
+<option value="58">4'10" (58 inches)</option>
+<option value="59">4'11" (59 inches)</option>
+<option value="60">5'0" (60 inches)</option>
+<option value="61">5'1" (61 inches)</option>
+<option value="62">5'2" (62 inches)</option>
+<option value="63">5'3" (63 inches)</option>
+<option value="64">5'4" (64 inches)</option>
+<option value="65">5'5" (65 inches)</option>
+<option value="66">5'6" (66 inches)</option>
+<option value="67">5'7" (67 inches)</option>
+<option value="68">5'8" (68 inches)</option>
+<option value="69">5'9" (69 inches)</option>
+<option value="70">5'10" (70 inches)</option>
+<option value="71">5'11" (71 inches)</option>
+<option value="72">6'0" (72 inches)</option>
+<option value="73">6'1" (73 inches)</option>
+<option value="74">6'2" (74 inches)</option>
+<option value="75">6'3" (75 inches)</option>
+<option value="76">6'4" (76 inches)</option>
+<option value="77">6'5" (77 inches)</option>
+<option value="78">6'6" (78 inches)</option>
+<option value="79">6'7" (79 inches)</option>
+<option value="80">6'8" (80 inches)</option>
+<option value="81">6'9" (81 inches)</option>
+<option value="82">6'10" (82 inches)</option>
+<option value="83">6'11" (83 inches)</option>
+<option value="84">7'0" (84 inches)</option>
+
+          <!-- Add other height options as needed -->
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="sleeve">What's your sleeve length ? (inches) <a href="/sleeve.html" style="text-decoration: underline;">if you need help click here</a></label>
+        <select id="sleeve" name="sleeve" required>
+          <option value="" disabled selected>Select sleeve length</option>
+          <option value="20">20 inches</option>
+          <option value="21">21 inches</option>
+          <option value="22">22 inches</option>
+          <option value="23">23 inches</option>
+          <option value="24">24 inches</option>
+          <option value="25">25 inches</option>
+          <option value="26">26 inches</option>
+          <option value="27">27 inches</option>
+          <option value="28">28 inches</option>
+          <option value="29">29 inches</option>
+          <option value="30">30 inches</option>
+          <!-- Add other sleeve length options as needed -->
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="chest">What's your chest size ? (inches) <a href="/chest.html" style="text-decoration: underline;">if you need help click here</a></label>
+        <select id="chest" name="chest" required>
+          <option value="" disabled selected>Select chest size</option>
+          <option value="25">25 inches</option>
+<option value="26">26 inches</option>
+<option value="27">27 inches</option>
+<option value="28">28 inches</option>
+<option value="29">29 inches</option>
+<option value="30">30 inches</option>
+<option value="31">31 inches</option>
+<option value="32">32 inches</option>
+<option value="33">33 inches</option>
+<option value="34">34 inches</option>
+<option value="35">35 inches</option>
+<option value="36">36 inches</option>
+<option value="37">37 inches</option>
+<option value="38">38 inches</option>
+<option value="39">39 inches</option>
+<option value="40">40 inches</option>
+<option value="41">41 inches</option>
+<option value="42">42 inches</option>
+<option value="43">43 inches</option>
+<option value="44">44 inches</option>
+<option value="45">45 inches</option>
+<option value="46">46 inches</option>
+<option value="47">47 inches</option>
+<option value="48">48 inches</option>
+<option value="49">49 inches</option>
+<option value="50">50 inches</option>
+<option value="51">51 inches</option>
+<option value="52">52 inches</option>
+<option value="53">53 inches</option>
+<option value="54">54 inches</option>
+<option value="55">55 inches</option>
+<option value="56">56 inches</option>
+<option value="57">57 inches</option>
+<option value="58">58 inches</option>
+<option value="59">59 inches</option>
+<option value="60">60 inches</option>
+<option value="61">61 inches</option>
+<option value="62">62 inches</option>
+<option value="63">63 inches</option>
+<option value="64">64 inches</option>
+<option value="65">65 inches</option>
+<option value="66">66 inches</option>
+<option value="67">67 inches</option>
+<option value="68">68 inches</option>
+<option value="69">69 inches</option>
+<option value="70">70 inches</option>
+
+          <!-- Add other chest size options as needed -->
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="waist">Tell us your waist measurement (inches) <a href="/waist.html" style="text-decoration: underline;">if you need help click here</a></label>
+        <select id="waist" name="waist" required>
+          <option value="" disabled selected>Select waist size</option>
+          <option value="25">25 inches</option>
+<option value="26">26 inches</option>
+<option value="27">27 inches</option>
+<option value="28">28 inches</option>
+<option value="29">29 inches</option>
+<option value="30">30 inches</option>
+<option value="31">31 inches</option>
+<option value="32">32 inches</option>
+<option value="33">33 inches</option>
+<option value="34">34 inches</option>
+<option value="35">35 inches</option>
+<option value="36">36 inches</option>
+<option value="37">37 inches</option>
+<option value="38">38 inches</option>
+<option value="39">39 inches</option>
+<option value="40">40 inches</option>
+<option value="41">41 inches</option>
+<option value="42">42 inches</option>
+<option value="43">43 inches</option>
+<option value="44">44 inches</option>
+<option value="45">45 inches</option>
+<option value="46">46 inches</option>
+<option value="47">47 inches</option>
+<option value="48">48 inches</option>
+<option value="49">49 inches</option>
+<option value="50">50 inches</option>
+<option value="51">51 inches</option>
+<option value="52">52 inches</option>
+<option value="53">53 inches</option>
+<option value="54">54 inches</option>
+<option value="55">55 inches</option>
+<option value="56">56 inches</option>
+<option value="57">57 inches</option>
+<option value="58">58 inches</option>
+<option value="59">59 inches</option>
+<option value="60">60 inches</option>
+<option value="61">61 inches</option>
+<option value="62">62 inches</option>
+<option value="63">63 inches</option>
+<option value="64">64 inches</option>
+<option value="65">65 inches</option>
+<option value="66">66 inches</option>
+<option value="67">67 inches</option>
+<option value="68">68 inches</option>
+<option value="69">69 inches</option>
+<option value="70">70 inches</option>
+
+          <!-- Add other waist size options as needed -->
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="seat">What's your seat size ? (inches) <a href="/seat.html" style="text-decoration: underline;">if you need help click here</a></label>
+        <select id="seat" name="seat" required>
+          <option value="" disabled selected>Select seat size</option>
+          <option value="25">25 inches</option>
+<option value="26">26 inches</option>
+<option value="27">27 inches</option>
+<option value="28">28 inches</option>
+<option value="29">29 inches</option>
+<option value="30">30 inches</option>
+<option value="31">31 inches</option>
+<option value="32">32 inches</option>
+<option value="33">33 inches</option>
+<option value="34">34 inches</option>
+<option value="35">35 inches</option>
+<option value="36">36 inches</option>
+<option value="37">37 inches</option>
+<option value="38">38 inches</option>
+<option value="39">39 inches</option>
+<option value="40">40 inches</option>
+<option value="41">41 inches</option>
+<option value="42">42 inches</option>
+<option value="43">43 inches</option>
+<option value="44">44 inches</option>
+<option value="45">45 inches</option>
+<option value="46">46 inches</option>
+<option value="47">47 inches</option>
+<option value="48">48 inches</option>
+<option value="49">49 inches</option>
+<option value="50">50 inches</option>
+<option value="51">51 inches</option>
+<option value="52">52 inches</option>
+<option value="53">53 inches</option>
+<option value="54">54 inches</option>
+<option value="55">55 inches</option>
+<option value="56">56 inches</option>
+<option value="57">57 inches</option>
+<option value="58">58 inches</option>
+<option value="59">59 inches</option>
+<option value="60">60 inches</option>
+<option value="61">61 inches</option>
+<option value="62">62 inches</option>
+<option value="63">63 inches</option>
+<option value="64">64 inches</option>
+<option value="65">65 inches</option>
+<option value="66">66 inches</option>
+<option value="67">67 inches</option>
+<option value="68">68 inches</option>
+<option value="69">69 inches</option>
+<option value="70">70 inches</option>
+
+          <!-- Add other seat size options as needed -->
+        </select>
+      </div>
+    
+
+      <div class="order-summary-container">
+        <h2>Order Summary</h2>
+        <div class="summary-item">
+            <span>Selected Jacket:</span>
+            <span id="jacketName">Classic Jacket</span>
+        </div>
+        <div class="summary-item">
+            <span>Height:</span>
+            <span id="selectedHeight">-</span>
+        </div>
+        <div class="summary-item">
+            <span>Sleeve Length:</span>
+            <span id="selectedSleeve">-</span>
+        </div>
+        <div class="summary-item">
+            <span>Chest Size:</span>
+            <span id="selectedChest">-</span>
+        </div>
+        <div class="summary-item">
+            <span>Waist Size:</span>
+            <span id="selectedWaist">-</span>
+        </div>
+        <div class="summary-item">
+            <span>Seat Size:</span>
+            <span id="selectedSeat">-</span>
+        </div>
+        <div class=" summary-item">
+            <button class="submit-btn" id="buyNowBtn"><a style="color: #000000;" href="/summary.html">Submit Size Chart</a></button>
+        </div>
+    </div>
+    
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+<script>
+
+document.getElementById('size-form').addEventListener('change', () => {
+        document.getElementById('selectedHeight').innerText = document.getElementById('height').value + ' inches';
+        document.getElementById('selectedSleeve').innerText = document.getElementById('sleeve').value + ' inches';
+        document.getElementById('selectedChest').innerText = document.getElementById('chest').value + ' inches';
+        document.getElementById('selectedWaist').innerText = document.getElementById('waist').value + ' inches';
+        document.getElementById('selectedSeat').innerText = document.getElementById('seat').value + ' inches';
+        const formData = {
+            height: document.getElementById('height').value,
+            sleeve: document.getElementById('sleeve').value,
+            chest: document.getElementById('chest').value,
+            waist: document.getElementById('waist').value,
+            seat: document.getElementById('seat').value,
+        };
+
+        localStorage.setItem('sizeData', JSON.stringify(formData));
+    });
+
+//     document.addEventListener('DOMContentLoaded', function () {
+    // const jacketImage = localStorage.getItem('customizedJacket');
+//     if (jacketImage) {
+//         document.getElementById('jacketImage').value = jacketImage;
+//     }
+// });
+//     document.getElementById('buyNowBtn').addEventListener('click', async () => {
+//         const response = await fetch('/create-checkout-session', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({
+//                 imageUrl: document.getElementById('jacketImage').value,
+//             }),
+//         });
+
+//         const session = await response.json();
+//         const stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY');
+//         await stripe.redirectToCheckout({ sessionId: session.id });
+//     });
+</script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

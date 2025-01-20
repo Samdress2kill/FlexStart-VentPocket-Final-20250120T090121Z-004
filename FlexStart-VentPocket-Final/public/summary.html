@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"> -->
+    <style>
+      /* General Styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: #000000;
+        background: linear-gradient(135deg, #2c3e50, #bdc3c7);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2 {
+        font-family: "Orbitron", sans-serif;
+        text-transform: uppercase;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 2px;
+        padding: 2px;
+      }
+
+      /* Header Section */
+      .header {
+        text-align: center;
+        padding: 5px 30px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        background:black;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+
+      /* Product Preview Section */
+      .product-section {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding-left: 50px;
+        height: 430px;
+      }
+
+      .product-image-wrapper {
+        width: 50%;
+        position: relative;
+      }
+
+      #summary-product-img {
+        position: absolute;
+        top: 0;
+        left: 23%;
+        width: 300px;
+        height: 430px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+      }
+
+      .product-info {
+        flex: 1;
+      }
+
+
+      /* Action Buttons */
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .action-buttons button {
+        padding: 15px 30px;
+        font-size: 1rem;
+        font-family: "Orbitron", sans-serif;
+        background: linear-gradient(90deg, #b24a11, #a56907);
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(238, 9, 121, 0.5);
+        transition: all 0.3s ease;
+      }
+
+      .action-buttons button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(183, 72, 4, 0.7);
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: #000000;
+      }
+
+      footer a {
+        color: #a15623;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      #product-overlay-slanted {
+        position: absolute;
+        top: 0;
+        left: 23%;
+        width: 300px;
+        height: 430px;
+        pointer-events: none; /* Ensure clicks pass through to the base image */
+      }
+      #product-overlay-3x {
+        position: absolute;
+        top: 0;
+        left: 23%;
+        width: 300px;
+        height: 430px;
+        pointer-events: none; /* Ensure clicks pass through to the base image */
+      }
+      #product-overlay-hole {
+        position: absolute;
+        top: 0;
+        left: 23%;
+        width: 300px;
+        height: 432px;
+        pointer-events: none; /* Ensure clicks pass through to the base image */
+        z-index: 111;
+      }
+
+      #size-form {
+        /* margin: 20px 0; */
+        padding: 10px;
+        border: 1px solid #c4978a;
+        border-radius: 10px;
+        background: #da4e2beb;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 8px;
+        width: 50%;
+      }
+
+      #size-form label {
+        display: block;
+        font-weight: bold;
+        color: #000000;
+      }
+
+      #size-form input {
+        width: 90%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+      }
+
+      .cj {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 2px 200px;
+      }
+      .cjj {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: -20px;
+      }
+      .cj p {
+        background: white;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        font-size: 1rem;
+
+      }
+
+      #price {
+        background: white;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+      .cjj h3 {
+        font-size: 2rem;
+        background:black;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <img style="height: 140px; width: 140px;" src="assets/img/logoo.PNG" alt="" class="logo-imgg">
+        <h1>Customised Jacket</h1>
+        <h6>.</h6>
+        <!-- <p>Review your selection before proceeding to checkout.</p> -->
+      </header>
+
+      <div class="cj">
+        <!-- <h2>The Premium Jacket has been tailored</h2> -->
+        <p>
+          This premium jacket has been tailored to your specifications. You can further refine your design or proceed to checkout.
+          Every detail is designed to meet your exact preferences.
+      </p>
+      <p id="price">£299.99</p>
+
+      </div>
+      <div class="cjj">
+        <h3>Your Jacket</h3>
+        <h3>Your Measurements</h3>
+      </div>
+
+      <!-- Product Preview Section -->
+      <div class="product-section">
+        <div class="product-image-wrapper">
+          <img id="summary-product-img" alt="Selected Jacket" src="" />
+          <img
+            id="product-overlay-slanted"
+            style="display: none"
+            class="product-overlay"
+            alt="Slanted Pocket Overlay"
+          />
+          <img
+            id="product-overlay-3x"
+            style="display: none"
+            class="product-overlay"
+            alt="3x Pocket Overlay"
+          />
+          <img
+            id="product-overlay-hole"
+            style="display: none"
+            class="product-overlay"
+            alt="Hole Pocket Overlay"
+          />
+        </div>
+        <div class="product-info">
+          <div class="details">
+            <form id="size-form">
+              <label for="height">Height:</label>
+              <input
+                disabled
+                type="number"
+                id="height"
+                name="height"
+                required
+              />
+              <label for="sleeve">Sleeve:</label>
+              <input
+                disabled
+                type="number"
+                id="sleeve"
+                name="sleeve"
+                required
+              />
+              <label for="chest">Chest:</label>
+              <input disabled type="number" id="chest" name="chest" required />
+              <label for="waist">Waist:</label>
+              <input disabled type="number" id="waist" name="waist" required />
+              <label for="seat">Seat:</label>
+              <input disabled type="number" id="seat" name="seat" required />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button onclick="window.location.href='/customise.html'">
+          Customize Again
+        </button>
+        <form id="size-formm" action="/create-checkout-session" method="POST">
+          <button id="buyNowBtn">Checkout</button>
+        </form>
+      </div>
+
+      <!-- Action Buttons -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 <a href="#">Jacketeer</a>. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const slantedPocket = localStorage.getItem("slantedPocket") === "true";
+        const threexPocket = localStorage.getItem("threexPocket") === "true";
+
+        // Reference to the summary image container
+        const selectedImageSrc = localStorage.getItem("customizedJacket");
+        const sumProdImage = document.getElementById("summary-product-img"); // Add an <img> tag with this ID in your HTML
+        sumProdImage.src = selectedImageSrc;
+
+        const threexImage = document.getElementById("product-overlay-3x"); // Add an <img> tag with this ID in your HTML
+        const overlaySlanted = document.getElementById("product-overlay-slanted"); // Add an <img> tag with this ID in your HTML
+        const hole = document.getElementById("product-overlay-hole"); // Add an <img> tag with this ID in your HTML
+
+
+        const customizedJacket = localStorage.getItem("customizedJacket");
+          const color = customizedJacket
+            .split("/")
+            .pop()
+            .slice(7)
+            .match(
+              /(red|blue|green|maroon|black|white|purple|cc|brown|lgray|dgray|navy)/
+            );
+            const filename = customizedJacket.split("/").pop(); // e.g., "2buttonpurplemaroonlinewhitewhiteT.jpg"
+
+            if (color !== "white" && color !== "lgray" && color !== "brown" &&
+            filename[0] === "1"){
+              console.log(color[0]);
+              hole.src = `/assets/img/1bh/${color[0]}.png`;
+
+            hole.style.display = "block";
+            }
+            if (color !== "white" && color !== "lgray" && color !== "brown" &&
+            filename[0] === "2"){
+              hole.src = `/assets/img/2bh/${color[0]}.png`;
+              hole.style.display = "block";
+            }
+            if (color !== "white" && color !== "lgray" && color !== "brown" &&
+            filename[0] === "6"){
+              hole.src = `/assets/img/6bh/${color[0]}.png`;
+              hole.style.display = "block";
+            }
+            
+
+        if (slantedPocket) {
+          // Set the overlay image source dynamically
+          const customizedJacket = localStorage.getItem("customizedJacket");
+          const color = customizedJacket
+            .split("/")
+            .pop()
+            .slice(7)
+            .match(
+              /(red|blue|green|maroon|black|white|purple|cc|brown|lgray|dgray|navy)/
+            );
+          if (color          ) {
+            overlaySlanted.src = `/assets/img/Slanted/${color[0]}.png`;
+            overlaySlanted.style.display = "block";
+          }
+        }
+        if (threexPocket) {
+          // Set the overlay image source dynamically
+          const customizedJacket = localStorage.getItem("customizedJacket");
+          const color = customizedJacket
+            .split("/")
+            .pop()
+            .slice(7)
+            .match(
+              /(red|blue|green|maroon|black|white|purple|cc|brown|lgray|dgray|navy)/
+            );
+          if (color) {
+            threexImage.src = `/assets/img/3x/${color[0]}.png`;
+            threexImage.style.display = "block";
+          }
+        }
+        const sizeData = JSON.parse(localStorage.getItem("sizeData"));
+
+        if (sizeData) {
+          // Populate the form with retrieved data
+          document.getElementById("height").value = sizeData.height;
+          document.getElementById("sleeve").value = sizeData.sleeve;
+          document.getElementById("chest").value = sizeData.chest;
+          document.getElementById("waist").value = sizeData.waist;
+          document.getElementById("seat").value = sizeData.seat;
+        }
+      });
+
+      document.getElementById('buyNowBtn').addEventListener('click', async () => {
+  const jacketImage = localStorage.getItem('customizedJacket');
+        const response = await fetch('/create-checkout-session', {
+          
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+//             body: JSON.stringify({
+//                  imageUrl: document.getElementById('jacketImage').value,
+// }),
+            });
+
+        const session = await response.json();
+        const stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY');
+        await stripe.redirectToCheckout({ sessionId: session.id });
+    });
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+  </body>
+</html>

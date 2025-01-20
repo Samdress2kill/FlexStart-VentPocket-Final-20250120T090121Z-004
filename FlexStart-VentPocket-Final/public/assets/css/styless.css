@@ -1,0 +1,344 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: linear-gradient(135deg, #f3f4f7 0%, #ffffff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.overlay-container {
+    position: relative;
+    width: fit-content; /* Ensures the container wraps around the product image */
+}
+
+#product-img {
+    /* position: relative; */
+    z-index: 1;
+}
+
+#product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%; /* Ensures overlay matches product image width */
+    height: 100%; /* Ensures overlay matches product image height */
+    object-fit: cover; /* Scales image to fit without distortion */
+}
+
+#product-overlay-slanted {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 23;
+    width: 100%; /* Ensures overlay matches product image width */
+    height: 100%; /* Ensures overlay matches product image height */
+    object-fit: cover; /* Scales image to fit without distortion */
+}
+
+#hole-overlay {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    z-index: 2355;
+    width: 100%; /* Ensures overlay matches product image width */
+    height: 100%; /* Ensures overlay matches product image height */
+    object-fit: cover; /* Scales image to fit without distortion */
+}
+
+
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin: 20px;
+    width: 50vw;
+}
+
+.header h1 {
+    padding: 0px 1em;
+    margin-bottom: 10px;
+    font-size: 2.8em;
+    color: #da4e2b;
+}
+
+.tagline {
+    font-size: 1.2em;
+    color: #777;
+    margin-top: 5px;
+    padding: 1.4vw;
+}
+
+#side_fill {
+    height: auto;
+    width: 15vw;
+    margin-top: 20px;
+}
+
+/* Progress Bar */
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.progress-bar .step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 20px 10px;
+    border-radius: 30px;
+    background-color: #f3f4f7;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.progress-bar .step.active {
+    background-color: #da4e2b;
+    color: white;
+}
+
+.progress-bar .step .material-icons {
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+/* Customization Section */
+.customization {
+    padding: 0px 20px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Step Content Section (Initially Hidden) */
+.step-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.step-content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Options */
+.options {
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    /* overflow: hidden; */
+
+}
+
+.step{
+    text-wrap: nowrap;
+}
+
+.options-wrapper{
+    height: 60vh;
+    /* width: 100%; */
+    overflow-y: auto;
+}
+
+.option {
+    background-color: #f8f9fc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 110px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-wrap: nowrap;
+}
+
+#button6{
+    text-wrap:wrap;
+}
+.option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.option img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Navigation */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #da4e2b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff6a3d;
+}
+
+/* Product Preview */
+.product-preview {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.product-preview img {
+    width: 310px;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* Left Sidebar */
+#left_sidebar_but_golo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For Medium Screens (Tablets) */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header h1 {
+        font-size: 2.2em;
+    }
+
+    .progress-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .option {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 10px;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .product-preview img {
+        width: 80%;
+    }
+}
+
+/* For Small Screens (Mobile) */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .tagline {
+        font-size: 1em;
+    }
+
+    .progress-bar .step {
+        padding: 15px 5px;
+        font-size: 0.9em;
+    }
+
+    .option {
+        width: 90%;
+    }
+
+    .product-preview img {
+        width: 100%;
+    }
+}
+
+/* For Large Screens (Desktops Larger Than 1200px) */
+@media (min-width: 1279px) {
+    .container {
+        max-width: 1600px; /* Increase the container width for larger screens */
+    }
+
+    .header h1 {
+        font-size: 3.2em; /* Increase the header font size */
+    }
+
+    .option {
+        width: 150px; /* Increase the option size */
+    }
+
+    .product-preview img {
+        width: 400px; /* Increase the product preview size */
+    }
+
+    .progress-bar .step {
+        padding: 25px 15px; /* Add more padding for larger screens */
+    }
+}

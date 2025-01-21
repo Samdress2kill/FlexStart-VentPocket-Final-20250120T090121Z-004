@@ -295,9 +295,7 @@
         <button onclick="window.location.href='/customise.html'">
           Customize Again
         </button>
-        <form id="size-formm" action="/create-checkout-session" method="POST">
-          <button id="buyNowBtn">Checkout</button>
-        </form>
+        <button id="checkout-button">Checkout</button>
       </div>
 
       <!-- Action Buttons -->
@@ -394,23 +392,26 @@
         }
       });
 
-      document.getElementById('buyNowBtn').addEventListener('click', async () => {
-  const jacketImage = localStorage.getItem('customizedJacket');
-        const response = await fetch('/create-checkout-session', {
-          
+      document.getElementById('checkout-button').addEventListener('click', async () => {
+        try {
+          const jacketImage = localStorage.getItem('customizedJacket');
+          const response = await fetch('/api/create-checkout', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+              'Content-Type': 'application/json',
             },
-//             body: JSON.stringify({
-//                  imageUrl: document.getElementById('jacketImage').value,
-// }),
-            });
-
-        const session = await response.json();
-        const stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY');
-        await stripe.redirectToCheckout({ sessionId: session.id });
-    });
+            body: JSON.stringify({
+              imageUrl: jacketImage,
+            }),
+          });
+          
+          const { url } = await response.json();
+          window.location.href = url;
+        } catch (error) {
+          console.error('Error:', error);
+          alert('There was a problem with the checkout process. Please try again.');
+        }
+      });
     </script>
     <script src="https://js.stripe.com/v3/"></script>
 

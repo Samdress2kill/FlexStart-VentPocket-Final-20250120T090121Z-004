@@ -1,186 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - FlexStart Bootstrap Template</title>
-
-
-  <!-- Meta Tags -->
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  
-
-  <!-- Favicons -->
-  <link href="/assets/img/favicon.png" rel="icon">
-  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
-  <!-- Main CSS File -->
-  <link href="/assets/css/main.css" rel="stylesheet">
-
-<style>
-
-.initial-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  opacity: 1; /* Ensure opacity is 1 initially */
-  transition: opacity 1s ease; /* Smooth fade-out transition */
-}
-
-
-
-/* Overlay hidden with fade-out effect */
-.initial-overlay.fade-out {
-  opacity: 0; /* Fade out */
-}
-
-
-
-    /* Centered logo */
-    .centered-logo {
-      max-width: 200px;
-      animation: fadeIn 2s;
-    }
-
-    /* Fade in animation */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    /* Fade out animation */
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-  </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VentPocket - Custom Jacket Design</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #bdc3c7);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+        .logo-img {
+            height: 140px;
+            width: 140px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, #b24a11, #a56907);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 30px;
+            transition: transform 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
-
-<body class="index-page">
-
-
-  <!-- Initial Overlay -->
-  <div class="initial-overlay" id="initial-overlay">
-    <img src="/assets/img/logoo.JPEG" alt="Logo" class="centered-logo">
-  </div>
-
-  <!-- Header Section -->
-  <header style="padding: 0px; background-color: rgba(0, 0, 0, 0.388);" id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logoo.PNG" alt="">
-        <h1 style="color: #da4e2b;" class="sitename"></h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted flex-md-shrink-0" href="index.html#about">Get Started</a>
-
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="assets/img/logoo.PNG" alt="VentPocket Logo" class="logo-img">
+        </header>
+        <main>
+            <h1>Welcome to VentPocket</h1>
+            <p>Create your custom jacket with our interactive design tool</p>
+            <a href="/customise.html" class="cta-button">Start Designing</a>
+        </main>
     </div>
-  </header>
-
-  <!-- Main Content -->
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 style="margin-bottom: 40px;  display:inline-block; font-family: Georgia, 'Times New Roman', Times, serif; background-color: #da4e2b26; color: #ffffff; font-weight: 900; font-size: 2rem; line-height: 3rem;" data-aos="fade-up">Welcome to, JACKETEERS</h1>
-            <p style="font-family: Georgia, 'Times New Roman', Times, serif; color: #ffffff; background-color: #da4e2b26; font-weight: 900; font-size: 1rem; line-height: 1rem;" data-aos="fade-up">The world's most exclusive Jacket Club for purveyors of Jackets</p>
-
-            <!-- <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color: #ffffff; background-color: #da4e2b26; font-weight: 900; font-size: 2rem; line-height: 3rem;" data-aos="fade-up">The worlds first Jacket Club</h1> -->
-            <p data-aos="fade-up" data-aos-delay="100"></p>
-            <a href="/customise.html" class="btn-get-started">Design your jacket by clicking here<i class="bi bi-arrow-right"></i></a>
-            <div style="display: flex; justify-content: center; flex-direction: column;">
-              <h1 style="display: flex; justify-content: center; color: #000000; font-family: Georgia, 'Times New Roman', Times, serif; color: #ffffff; background-color: #da4e2b26; font-weight: 700; font-size: 1.2rem; line-height: 3rem;" data-aos="fade-up" data-aos-delay="100">Jackets from only £250</h1>
-              <p style="display: flex; justify-content: center; font-family: Georgia, 'Times New Roman', Times, serif; color: #ffffff; background-color: #da4e2b26; font-weight: 900; font-size: 1rem; line-height: 1rem;" data-aos="fade-up">Delivered to you with in 2 weeks.</p>
-
-            </div>
-            <!-- <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
-
-            </div> -->
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-            <!-- Optional Image if needed -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Scroll to Top Button -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
-
-  <!-- Vendor JS Files -->
-  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/assets/vendor/php-email-form/validate.js"></script>
-  <script src="/assets/vendor/aos/aos.js"></script>
-  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="/assets/js/main.js"></script>
-
-  <!-- Custom JS to handle the overlay click -->
-  <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const overlay = document.getElementById('initial-overlay');
-  const heroSection = document.getElementById('hero');
-
-  overlay.addEventListener('click', function() {
-    this.classList.add('fade-out'); // Add the fade-out class to start the fade-out transition
-
-    // Wait for the animation to complete before hiding the overlay and scrolling
-    setTimeout(() => {
-      this.style.display = 'none'; // Hide the overlay
-      heroSection.scrollIntoView({ behavior: 'smooth' }); // Smoothly scroll to the hero section
-    }, 3000); // This should match the duration of the fade-out animation
-  });
-});
-
-
-
-  </script>
-
 </body>
 </html>

@@ -1,7 +1,5 @@
 {
-    "name": "express-static-website",
   "version": 2,
-  "public": true,
   "builds": [
     {
       "src": "server.js",
@@ -14,12 +12,15 @@
   ],
   "routes": [
     {
-      "src": "/((?!.*\\.\\w+$).*)",
-      "dest": "/server.js"
+      "src": "/api/(.*)",
+      "dest": "server.js"
     },
     {
-      "src": "/(.+\\.[a-z]+)$",
+      "src": "/(.*)",
       "dest": "/public/$1"
     }
-  ]
+  ],
+  "env": {
+    "STRIPE_SECRET_KEY": "@stripe_secret_key"
+  }
 }

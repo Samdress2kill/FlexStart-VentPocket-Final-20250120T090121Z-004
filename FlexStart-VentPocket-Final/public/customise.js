@@ -1560,39 +1560,95 @@ document.getElementById("prev").addEventListener("click", () => {
   }
 });
 
-// Immediate image update when an option is selected
+// Modify the options event listener to properly handle maroon with button6
 options.forEach((option) => {
   option.addEventListener("click", function () {
-    const optionType = option.getAttribute("data-option"); // e.g. button, fabric
-    const optionValue = option.getAttribute("data-value"); // e.g. 2button, navy
-
-    // Save the user's selection in the corresponding category
+    const optionType = option.getAttribute("data-option");
+    const optionValue = option.getAttribute("data-value");
+    
+    // Save the selection
     userSelections[optionType] = optionValue;
+    
+    // Special handling for button6
+    if (optionType === "button" && optionValue === "6button") {
+      document.getElementById("button6").classList.add("selected");
+    }
+    
+    // Special handling for maroon fabric
+    if (optionType === "fabric" && optionValue === "maroon") {
+      // Reset any stuck states
+      document.getElementById("hole-overlay").style.display = "none";
+      document.getElementById("product-overlay").style.display = "none";
+      document.getElementById("product-overlay-slanted").style.display = "none";
+    }
 
+    // Enable next button and update image
+    const nextButton = document.getElementById("next");
+    nextButton.style.display = "block";
+    
     updatePreviewImage();
   });
 });
 
-// Update the preview image according to the selections
+// Update the updatePreviewImage function to handle maroon with button6
 function updatePreviewImage() {
   let imagePath = "/assets/img/jacket/";
-  const nextButton = document.getElementById("next");
-  nextButton.style.display = "block";
-
-  // Construct the image path based on selections or use 'default' if not selected yet
-  imagePath += userSelections.button || "";
-  imagePath += userSelections.fabric || "";
+  
+  // Handle button selection
+  if (userSelections.button) {
+    imagePath += userSelections.button;
+  }
+  
+  // Handle fabric selection, with special case for maroon
+  if (userSelections.fabric) {
+    imagePath += userSelections.fabric;
+  }
+  
+  // Add remaining selections
   imagePath += userSelections.lining || "";
   imagePath += userSelections.hole || "";
   imagePath += userSelections.thread || "";
-  // imagePath += (userSelections.pocket || '');
-  // imagePath += (userSelections.vent || '');
   imagePath += ".jpg";
 
-  // Update the preview image src
+  // Update preview image
   previewImage.src = imagePath;
   localStorage.setItem("customizedJacket", imagePath);
+  
+  // Reset overlays when changing main image
+  if (userSelections.fabric === "maroon") {
+    document.getElementById("hole-overlay").style.display = "none";
+    document.getElementById("product-overlay").style.display = "none";
+    document.getElementById("product-overlay-slanted").style.display = "none";
+  }
 }
+
+// Add this function to handle button style changes
+function handleButtonStyleChange(buttonType) {
+  // Reset any stuck states
+  document.getElementById("hole-overlay").style.display = "none";
+  document.getElementById("product-overlay").style.display = "none";
+  document.getElementById("product-overlay-slanted").style.display = "none";
+  
+  userSelections.button = buttonType;
+  updatePreviewImage();
+}
+
+// Add event listeners for button style changes
+document.querySelectorAll('[data-option="button"]').forEach((button) => {
+  button.addEventListener("click", function() {
+    const buttonType = this.getAttribute("data-value");
+    handleButtonStyleChange(buttonType);
+  });
+});
+
+// Add event listener for lining changes
+document.querySelectorAll('[data-option="lining"]').forEach((lining) => {
+  lining.addEventListener("click", function() {
+    const liningValue = this.getAttribute("data-value");
+    userSelections.lining = liningValue;
+    updatePreviewImage();
+  });
+});
 
 // Initial call to show the first step when the page loads
 showStep(currentStep);

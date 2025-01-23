@@ -522,7 +522,7 @@
             <span id="selectedSeat">-</span>
         </div>
         <div class=" summary-item">
-            <button class="submit-btn" id="buyNowBtn"><a style="color: #000000;" href="/summary.html">Submit Size Chart</a></button>
+            <button class="submit-btn" id="buyNowBtn">Submit Size Chart</button>
         </div>
     </div>
     
@@ -555,27 +555,19 @@ document.getElementById('size-form').addEventListener('change', () => {
         localStorage.setItem('sizeData', JSON.stringify(formData));
     });
 
-//     document.addEventListener('DOMContentLoaded', function () {
-    // const jacketImage = localStorage.getItem('customizedJacket');
-//     if (jacketImage) {
-//         document.getElementById('jacketImage').value = jacketImage;
-//     }
-// });
-//     document.getElementById('buyNowBtn').addEventListener('click', async () => {
-//         const response = await fetch('/create-checkout-session', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify({
-//                 imageUrl: document.getElementById('jacketImage').value,
-//             }),
-//         });
+document.getElementById('buyNowBtn').addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    const formData = {
+        height: document.getElementById('height').value,
+        sleeve: document.getElementById('sleeve').value,
+        chest: document.getElementById('chest').value,
+        waist: document.getElementById('waist').value,
+        seat: document.getElementById('seat').value,
+    };
 
-//         const session = await response.json();
-//         const stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY');
-//         await stripe.redirectToCheckout({ sessionId: session.id });
-//     });
+    localStorage.setItem('sizeData', JSON.stringify(formData));
+    window.location.href = '/summary.html'; // Redirect to summary page
+});
 </script>
 <script src="assets/js/main.js"></script>
 

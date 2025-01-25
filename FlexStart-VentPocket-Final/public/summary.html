@@ -247,6 +247,89 @@
         margin-top: 20px;
         font-size: 18px;
       }
+
+      @media (max-width: 600px) {
+        .product-section {
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+          height: auto;
+        }
+
+        .cjj {
+          display: none; /* Hide the original headings container */
+        }
+
+        .product-image-wrapper {
+          position: relative;
+          width: 100%;
+          margin: 0 auto;
+          padding: 0;
+        }
+
+        .product-image-wrapper::before {
+          content: 'Your Jacket';
+          display: block;
+          font-size: 1.5rem;
+          margin-bottom: 15px;
+          font-weight: bold;
+          text-align: center;
+          background: black;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        #summary-product-img {
+          position: relative;
+          left: 0;
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
+          display: block;
+        }
+
+        .product-info {
+          width: 100%;
+          margin-top: 20px;
+          position: relative;
+        }
+
+        .product-info::before {
+          content: 'Your Measurements';
+          display: block;
+          font-size: 1.5rem;
+          margin-bottom: 15px;
+          font-weight: bold;
+          text-align: center;
+          background: black;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        #size-form {
+          margin: 10px auto;
+          padding: 15px;
+        }
+
+        #product-overlay-slanted,
+        #product-overlay-3x,
+        #product-overlay-hole {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .header {
+          flex-direction: column;
+          padding: 10px;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+      }
     </style>
   </head>
   <body>
